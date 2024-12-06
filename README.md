@@ -1,3 +1,5 @@
+[![GitHub license](https://img.shields.io/github/license/dipakkr/A-to-Z-Resources-for-Students.svg?style=plastic)](https://github.com/AasaiAlangaram/Python-LIN-Diagnostic-Tool/blob/master/LICENSE)
+
 # SecOC (Secure On-Board Communication) Simulation
 
 This is a Python-based simulation of the **Secure On-Board Communication (SecOC)** protocol, which is designed to ensure secure communication within an ECU network, such as for automotive applications. This simulation mimics two ECUs (Electronic Control Units) that send and receive messages over a simulated CAN bus while implementing basic security features such as Message Authentication Code (MAC) and freshness checks to prevent replay attacks.
