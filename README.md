@@ -71,7 +71,3 @@ To stop the simulation, press Ctrl+C in the terminal. The simulation will gracef
 ## Upcoming features
 Testing with Vector SIL Kit
 
-To install required dependencies, you can use `pip`:
-
-```bash
-pip install pyqt5
