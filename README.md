@@ -68,6 +68,8 @@ Here is an example of the ECU log output:
 ## Stopping the Simulation
 To stop the simulation, press Ctrl+C in the terminal. The simulation will gracefully stop both sender and receiver threads.
 
+## Upcoming features
+Testing with Vector SIL Kit
 
 To install required dependencies, you can use `pip`:
 
