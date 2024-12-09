@@ -67,8 +67,14 @@ Here is an example of the ECU log output:
 [ECU 2] Replay attack detected! Freshness is too old.
 ```
 
-## Stopping the Simulation
-To stop the simulation, press Ctrl+C in the terminal. The simulation will gracefully stop both sender and receiver threads.
+## UI
+
+![can_simuulation](./replayattack.png)
+
+## UI Features
+- Start/ Stop Simulation
+- Clear Simulaiton
+- Trigger Replay Attack
 
 ## Upcoming features
 Testing with Vector SIL Kit
