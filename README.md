@@ -70,6 +70,8 @@ Here is an example of the ECU log output:
 ## UI
 
 ![can_simuulation](./replayattack.png)
+![highlighted](./replayattack.gif)
+
 
 ## UI Features
 - Start/ Stop Simulation
