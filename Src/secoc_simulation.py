@@ -6,17 +6,17 @@ import logging
 import os
 from queue import Queue
 
-# Secret key for MAC generation and verification (initial secret key)
-# Start with a 256-bit key
-SECRET_KEY = os.urandom(32)  
+# Secret key for MAC generation and verification 256 bit key
+SECRET_KEY = os.urandom(32)
 
 # Simulated CAN bus as a shared queue
+# The same will be simulated using Vector SilKit [Feature Release]
 can_bus = Queue()
 
-# Stop event to signal threads to terminate
+# Stop event to signal threads
 stop_event = threading.Event()
 
-# Freshness manager to track previously used freshness values
+# Freshness manager to track FV
 freshness_manager = set()
 
 
@@ -28,14 +28,14 @@ def setup_logging():
 def rotate_key():
     """Rotate the MAC secret key periodically."""
     global SECRET_KEY
-     # Generate a new 256-bit key
-    SECRET_KEY = os.urandom(32) 
+    # Generate a new 256-bit key
+    SECRET_KEY = os.urandom(32)
     logging.info("Key rotated.")
 
 
 def get_truncated_freshness(freshness):
-    """Truncate the freshness value to a shorter length (e.g., last 4 bytes). Truncate to the last 4 bytes (32 bits)"""
-    return freshness & 0xFFFFFFFF  
+    """Truncate the freshness value to a shorter length (e.g., last 4 bytes)."""
+    return freshness & 0xFFFFFFFF
 
 
 def generate_mac(message, freshness, key):
@@ -63,14 +63,14 @@ def sender():
         mac = generate_mac(message, timestamp, SECRET_KEY)
         dlc = len(message.encode())  # Data length in bytes
         payload = f"{message_id}|{dlc}|{message}|{timestamp}|{mac}"
-        can_bus.put(payload)  # Send the message to the CAN bus
+        can_bus.put(payload)  
         logging.info(f"[ECU 1] Sent: {payload}")
 
         # Periodically rotate the key for enhanced security & Rotate key every 60 seconds
         if int(time.time()) % 60 == 0:  
             rotate_key()
 
-        # Delay 1s
+        # Delay 1s for simulation
         time.sleep(1) 
 
 
@@ -112,6 +112,7 @@ def receiver():
             else:
                 logging.warning("[ECU 2] Malformed message received.")
         time.sleep(0.5)  
+
 
 
 if __name__ == '__main__':
