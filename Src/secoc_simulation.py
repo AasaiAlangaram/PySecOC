@@ -1,3 +1,10 @@
+"""
+Author: Aasai
+Email: aasaialangaram450@gmail.com
+Date: 2024-12-09
+Description: This script simulates the SecOC CAN and Replay attack.
+"""
+
 import sys
 import threading
 import time
